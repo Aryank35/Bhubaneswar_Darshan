@@ -1,0 +1,5 @@
+/* Add this CSS to your global styles or CSS file */
+.transition-slide {
+    transition: transform 0.5s ease-in-out;
+  }
+  

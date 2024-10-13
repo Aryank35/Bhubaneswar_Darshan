@@ -1,11 +1,11 @@
 import React from "react";
 import DropdownBox from "../Components/DropdownBox";
 import Navbar from "../Components/Navbar";
+import Features from "../Components/Features";
 
 const Home = () => {
   return (
     <>
-      
       <div
         className="relative bg-cover bg-center bg-no-repeat h-[calc(100vh-4rem)] sm:h-[calc(80vh-4rem)] md:h-screen"
         style={{ backgroundImage: "url('/images/Home page/banner.jpg')" }}
@@ -14,10 +14,6 @@ const Home = () => {
         <div className="absolute md:top-8 top-4 left-4 md:left-8 z-20">
           <DropdownBox />
         </div>
-
-        {/* <div className="absolute md:top-8 top-16 md:right-8 left-4 z-20">
-          <DropdownBox />
-        </div> */}
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
@@ -30,6 +26,14 @@ const Home = () => {
           <p className="text-white mt-4 text-sm sm:text-base lg:text-lg font-medium">
             Discover the beauty, culture, and history of the city.
           </p>
+        </div>
+
+        {/* Features Section */}
+        <div className="hidden absolute md:block  w-full -bottom-32 z-20">
+          <Features />
+        </div>
+        <div className=" absolute md:hidden  w-full  top-3/4 z-20">
+          <Features />
         </div>
       </div>
     </>
