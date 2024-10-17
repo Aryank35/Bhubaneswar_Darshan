@@ -28,7 +28,7 @@ const DropDownFeatures = () => {
   return (
     <div className="flex flex-wrap md:justify-between items-center gap-4 mx-auto">
       {FeaturesBoxContent.map((feature, index) => (
-        <div key={index} className="relative sm:w-[45%] w-full  mx-auto" ref={(el) => (dropdownRefs.current[index] = el)}>
+        <div key={index} className="relative sm:w-[45%] w-full xl:w-[32%] mx-auto" ref={(el) => (dropdownRefs.current[index] = el)}>
           <button
             className="flex items-center w-full gap-2 text-center justify-center text-white text-xl md:text-2xl font-bold tracking-wide py-6 bg-gradient-to-r from-purple-600 to-indigo-500 rounded-full hover:from-indigo-500 hover:to-purple-600 focus:outline-none transition-all duration-300 shadow-lg"
             onClick={() => handleToggle(index)}

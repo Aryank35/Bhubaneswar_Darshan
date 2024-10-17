@@ -7,7 +7,7 @@ const AllFeatures = () => {
   return (
   <>
     <div className="heading text-center my-[50px]">
-      <h1 className="text-3xl font-bold text-green-400">Explore Bhubaneswar</h1>
+      <h1 className="text-3xl md:text-5xl font-bold text-[#433878]">Explore Bhubaneswar</h1>
     </div>
     <div className="flex justify-center items-center mx-auto">
       <DropDownFeatures/>
