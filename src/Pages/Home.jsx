@@ -34,7 +34,7 @@ const Home = () => {
         <div className="hidden absolute md:block  w-full -bottom-32 z-20">
           <Features />
         </div>
-        <div className=" absolute md:hidden  w-full  top-3/4 z-20">
+        <div className=" absolute md:hidden  w-full  top-3/4 mt-4 z-20">
           <Features />
         </div>
       </div>
