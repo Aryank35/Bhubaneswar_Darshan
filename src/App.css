@@ -1,4 +1,8 @@
 /* Add this CSS to your global styles or CSS file */
+body::-webkit-scrollbar{
+   display: none;
+}
+
 .transition-slide {
     transition: transform 0.5s ease-in-out;
   }

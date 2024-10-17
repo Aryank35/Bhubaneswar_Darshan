@@ -7,17 +7,11 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const exploreRef = useRef(null);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
+  const handleSearch = (e) => setSearch(e.target.value);
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  const handleToggle = () => setIsOpen(!isOpen);
 
-  const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const handleMenuToggle = () => setMenuOpen(!menuOpen);
 
   const closeDropdown = (e) => {
     if (exploreRef.current && !exploreRef.current.contains(e.target)) {
@@ -32,24 +26,46 @@ const Navbar = () => {
     };
   }, []);
 
+  const renderMenuItem = (text, link) => (
+    <Link
+      to={link}
+      className="text-white hover:text-emerald-200 font-semibold tracking-wider transition-colors duration-300"
+    >
+      {text}
+    </Link>
+  );
+
+  const renderDropdownItem = (text, link) => (
+    <Link
+      to={link}
+      className="block px-4 py-3 text-gray-800 hover:bg-emerald-50 hover:text-green-700 transition-colors"
+    >
+      {text}
+    </Link>
+  );
+
+  const dropdownItems = [
+    { text: "Tourist Spots", link: "/spots" },
+    { text: "Local Events", link: "/events" },
+    { text: "Cuisine", link: "/cuisine" },
+    { text: "Travel Guide", link: "/guide" }
+  ];
+  // bg-gradient-to-r from-teal-600 via-emerald-500 to-green-600
   return (
-    <nav className="bg-gradient-to-r from-teal-600 via-emerald-500 to-green-600 py-4 shadow-lg w-full">
-      <div className="container mx-auto flex justify-between items-center px-6">
+    <nav className="bg-gradient-to-r from-purple-600 to-indigo-400 hover:from-indigo-400 hover:to-purple-600 focus:outline-none transition-all duration-300 py-4 shadow-lg w-full">
+      <div className="container mx-auto flex justify-between items-center md:px-6 px-2">
         {/* Logo and Brand */}
         <Link to="/" className="flex items-center">
-          <h1 className="sm:text-3xl text-xl font-bold text-white ml-4 tracking-widest hover:scale-105 transition-transform">
+          <h1 className="sm:text-3xl text-xl font-bold text-white md:ml-4 ml-1 tracking-widest hover:scale-105 transition-transform">
             Bhubaneswar Darshan
           </h1>
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
-          <Link to="/" className="text-white hover:text-emerald-200 font-semibold tracking-wider transition-colors duration-300">
-            Home
-          </Link>
-          <Link to="/about" className="text-white hover:text-emerald-200 font-semibold tracking-wider transition-colors duration-300">
-            About
-          </Link>
+        <div className="hidden lg:flex items-center space-x-8">
+          {renderMenuItem("Home", "/")}
+          {renderMenuItem("About", "/about")}
+          
           <div className="relative" ref={exploreRef}>
             <button
               className="text-white hover:text-emerald-200 font-semibold tracking-wider focus:outline-none transition-colors duration-300"
@@ -59,18 +75,7 @@ const Navbar = () => {
             </button>
             {isOpen && (
               <div className="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded-lg z-10 overflow-hidden">
-                <Link to="/spots" className="block px-4 py-3 text-gray-800 hover:bg-emerald-50 hover:text-green-700 transition-colors">
-                  Tourist Spots
-                </Link>
-                <Link to="/events" className="block px-4 py-3 text-gray-800 hover:bg-emerald-50 hover:text-green-700 transition-colors">
-                  Local Events
-                </Link>
-                <Link to="/cuisine" className="block px-4 py-3 text-gray-800 hover:bg-emerald-50 hover:text-green-700 transition-colors">
-                  Cuisine
-                </Link>
-                <Link to="/guide" className="block px-4 py-3 text-gray-800 hover:bg-emerald-50 hover:text-green-700 transition-colors">
-                  Travel Guide
-                </Link>
+                {dropdownItems.map(item => renderDropdownItem(item.text, item.link))}
               </div>
             )}
           </div>
@@ -102,7 +107,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="lg:hidden flex items-center">
           <button onClick={handleMenuToggle} className="text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -124,13 +129,9 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white shadow-md p-4 rounded-b-lg">
-          <Link to="/" className="block text-gray-800 hover:text-green-600 py-2 font-medium">
-            Home
-          </Link>
-          <Link to="/about" className="block text-gray-800 hover:text-green-600 py-2 font-medium">
-            About
-          </Link>
+        <div className="lg:hidden bg-white shadow-md p-4 rounded-b-lg">
+          {renderMenuItem("Home", "/")}
+          {renderMenuItem("About", "/about")}
           <button
             onClick={handleToggle}
             className="block text-gray-800 hover:text-green-600 py-2 font-medium w-full text-left"
@@ -139,18 +140,7 @@ const Navbar = () => {
           </button>
           {isOpen && (
             <div className="pl-4 mt-2">
-              <Link to="/spots" className="block text-gray-700 hover:bg-green-50 py-2 rounded transition-colors">
-                Tourist Spots
-              </Link>
-              <Link to="/events" className="block text-gray-700 hover:bg-green-50 py-2 rounded transition-colors">
-                Local Events
-              </Link>
-              <Link to="/cuisine" className="block text-gray-700 hover:bg-green-50 py-2 rounded transition-colors">
-                Cuisine
-              </Link>
-              <Link to="/guide" className="block text-gray-700 hover:bg-green-50 py-2 rounded transition-colors">
-                Travel Guide
-              </Link>
+              {dropdownItems.map(item => renderDropdownItem(item.text, item.link))}
             </div>
           )}
           <input

@@ -1,7 +1,9 @@
 import React from "react";
-import DropdownBox from "../Components/DropdownBox";
 import Navbar from "../Components/Navbar";
 import Features from "../Components/Features";
+import TransportDropDown from "../Components/TransportDropDown";
+import DropDownFeatures from "../Components/DropDownFeatures";
+import AllFeatures from "../Components/AllFeatures";
 
 const Home = () => {
   return (
@@ -12,7 +14,7 @@ const Home = () => {
       >
         {/* DropdownBox positioned at the top left */}
         <div className="absolute md:top-8 top-4 left-4 md:left-8 z-20">
-          <DropdownBox />
+          <TransportDropDown />
         </div>
 
         {/* Overlay */}
@@ -20,10 +22,10 @@ const Home = () => {
 
         {/* Welcome Text */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 text-center z-10">
-          <h1 className="text-white text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide">
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide">
             Welcome to Bhubaneswar
           </h1>
-          <p className="text-white mt-4 text-sm sm:text-base lg:text-lg font-medium">
+          <p className="text-white mt-4 sm:text-base lg:text-lg font-medium">
             Discover the beauty, culture, and history of the city.
           </p>
         </div>
@@ -35,6 +37,9 @@ const Home = () => {
         <div className=" absolute md:hidden  w-full  top-3/4 z-20">
           <Features />
         </div>
+      </div>
+      <div className="mt-[150px] mx-5 bg-[FFE1FF]">
+        <AllFeatures/>
       </div>
     </>
   );

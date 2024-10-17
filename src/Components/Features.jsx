@@ -44,7 +44,7 @@ const Features = () => {
   }, [featuresData.length]);
 
   return (
-    <div className="md:flex md:justify-center md:gap-6 p-6">
+    <div className="md:flex md:justify-center  md:p-6 p-2">
       {/* Desktop View - Show All Cards */}
       <div className="hidden md:flex gap-6">
         {featuresData.map((feature, index) => (
