@@ -1,10 +1,9 @@
-
 import React from 'react';
 import FacilityList from './FacilityList';
 
 const TravelAgencyCard = ({ agency }) => {
   return (
-    <div className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300">
+    <div className="max-w-sm mx-5 rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300">
       <img className="w-full h-48 object-cover" src={agency.image} alt={agency.location} />
       <div className="px-6 py-4">
         <div className="flex justify-between items-center mb-2">
