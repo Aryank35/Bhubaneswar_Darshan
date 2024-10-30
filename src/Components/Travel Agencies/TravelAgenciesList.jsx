@@ -59,7 +59,7 @@ const travelAgencies = [
 
 const TravelAgenciesList = () => {
   return (
-    <div className="flex justify-center w-full items-center py-10">
+    <div className="flex overflow-x-hidden justify-center w-full items-center py-10">
       <div className="w-full max-w-7xl">
         <Slider {...sliderSettings}>
           {travelAgencies.map((agency, index) => (

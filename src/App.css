@@ -7,3 +7,6 @@ body::-webkit-scrollbar{
     transition: transform 0.5s ease-in-out;
   }
   
+body{
+   overflow-x: hidden;
+}
