@@ -5,6 +5,9 @@ import Home from './Pages/Home';
 import Navbar from './Components/Navbar';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Market from './Pages/Shopping/Market';
+import Mall from './Pages/Shopping/Mall';
+import Hall from './Pages/Movies/Hall';
 
 
 function App() {
@@ -16,6 +19,9 @@ function App() {
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
+          <Route path='/mall' element={<Mall/>}/>
+          <Route path='/market' element={<Market/>}/>
+          <Route path='/movieHall' element={<Hall/>}/>
         </Routes>
       </BrowserRouter>
     </>
